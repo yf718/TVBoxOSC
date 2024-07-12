@@ -171,20 +171,20 @@ jobs:
       #       mv ../.github/scripts/upload.py ./
       #       python upload.py
       #     fi
-      - name: Push to master
-        if: ${{ env.commit }}
-        run: |
-          rm -rf TVBoxOSC
-          git reset --hard
-          sed -i '/url =/d' ./.git/config
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote set-url --add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git pull --rebase
-          # sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
-          git add --all
-          git commit -m "${{ env.commit }}"
-          git push -u -f origin master
+      # - name: Push to master
+      #   if: ${{ env.commit }}
+      #   run: |
+      #     rm -rf TVBoxOSC
+      #     git reset --hard
+      #     sed -i '/url =/d' ./.git/config
+      #     git config --local user.name "github-actions[bot]"
+      #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git remote set-url --add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+      #     git pull --rebase
+      #     sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
+      #     git add --all
+      #     git commit -m "${{ env.commit }}"
+      #     git push -u -f origin master
 
   # telegram-bot-api:
   #   name: Telegram Bot API
